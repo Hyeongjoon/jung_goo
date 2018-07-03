@@ -2,95 +2,78 @@
 <html lang="en">
 	<head>
 		<title>Air puri | 고객 센터</title>
-
-		<meta name="Keywords" content="">
-		<meta name="Description" content="">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
-
-		<!-- Favicon for Desktop, iOS and android -->
-		<link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-touch-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-touch-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-touch-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="mask-icon" href="assets/images/favicons/safari-pinned-tab.svg">
-
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-
-		<link href="assets/css/bootstrap.css" rel="stylesheet"> 
-		<link href="assets/css/font-awesome.css" rel="stylesheet">
-		<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet">
-		<link href="assets/css/magnific-popup.css" rel="stylesheet">
-		<link href="assets/css/aos.css" rel="stylesheet">
-		<link href="assets/css/flexslider.css" rel="stylesheet">
-		<link href="assets/css/style.css" rel="stylesheet">
-		<link href="assets/css/colors/color-1.css" rel="stylesheet"> <!-- Color Scheme -->
-		<link rel="stylesheet" href="/css/loading.css">
-		<link rel="stylesheet" href="/css/loading-btn.css">
-
-		<script src="/assets/js/vue.js"></script> 		
-		<script src="assets/js/modernizr.js"></script>
-
-		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js"></script>
-		<script src="assets/js/respond.min.js"></script> 
-		<![endif]-->
-
+		<% include head.ejs %>
 	</head>
 
 <body>
 	<div id="app">
 	<!-- Start Content -->
-	<section id="main" class="wrapper">
+	<section id="contact" class="wrapper">
 
 		<!-- Start Header -->
-		<header id="contact-home" class="page-header-container">
+		<header  class="page-header-container">
 			<div class="container-fluid page-header-content">
 				<div class="page-overlay"></div>
-				<h2>고객 센터</h2>
-			</div>
+					<h2>고객 센터</h2>
+				</div>
 		</header>
 		<!-- End Header -->
 
-		<!-- Start Navigation -->
-		<nav id="navigation" class="navbar navbar-default navbar-page-top">
-			<div class="container-fluid">
-
-				<div class="container">
-					<div class="navbar-header">
-						<button id="nav-icon" type="button" class="navbar-toggle collapsed nav-icon" data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-						</button>
-						<a class="navbar-brand smooth" href="/temp">Olli.<span class="logo-promo-text">Perfect Gadgets</span></a> <!-- Title / Tagline -->
-					</div>
-
-					<div class="collapse navbar-collapse" id="menu-navbar">
-						<ul class="nav navbar-nav navbar-right smooth-nav">
-							<li><a href="/temp#home" title="Home">Home</a></li>
-							<li><a href="/temp#about" title="About">About</a></li>
-							<li><a href="/temp#products-1" title="Products">Products</a></li>
-							<li><a href="/temp#" target="_blank" title="Buy This Template">Buy It</a></li>
-							<li  class="current"><a href="index-1.html#reviews" title="Reviews">고객센터</a></li>
-						</ul>
-					</div>
-
-					<div class="clearfix"></div>
-
+		<% include navbar.ejs %>
+		<section class="block">
+			<div class="container">
+				<p class="text-center">
+					<button style="cursor:pointer;" type="button" v-on:click="reg_sn" class="button order-button ld-over-inverse">제품 번호 등록<div class="ld ld-ring ld-spin-fast"></div></button>
+				</p>
+				<br />
+				<h3 class="text-center">FAQ</h3>
+				<div id="accordion">
+				  <div class="card">
+				    <div class="card-header" id="headingOne">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          	질문 1
+				        </button>
+				      </h5>
+				    </div>
+				
+				    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+				      <div class="card-body">
+				        	답변 1
+				      </div>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <div class="card-header" id="headingTwo">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				          Collapsible Group Item #2
+				        </button>
+				      </h5>
+				    </div>
+				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+				      <div class="card-body">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <div class="card-header" id="headingThree">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				          Collapsible Group Item #3
+				        </button>
+				      </h5>
+				    </div>
+				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+				      <div class="card-body">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
 				</div>
 			</div>
-		</nav>
+		</section>
 		<!-- End Navigation -->
 		<div id="map" style="width:100%; height: 400px;"></div>
 		<!-- Start Content -->
@@ -138,78 +121,39 @@
 			
 		</section>
 		<!-- End Content -->
-
-		<!-- Start Footer -->
-		<footer id="footer" class="footer">
-
-			<div class="footer-bg">
-				<div class="footer-bg-img"></div>
-				<div class="footer-bg-overlay"></div>
-				<span class="trapeze-footer-bg"></span>
-			</div>
-
-			<div class="container footer-first-line">
-				<div class="row">
-
-					<!-- Start Text in Footer -->
-					<div class="col-md-6 footer-about">
-
-						<h2>Olli.</h2>
-						<p>
-							Nobis est eligendi optio, cumque nihil molestiae. Ea voluptate velit aliquid ex ea voluptate velit voluptatem accusantium doloremque laudantium esse, quam nihil impedit, quo minus id, quod maxime.
-						</p>
-
-						<ul class="footer-social-icons">
-							<li><a href="#" title="Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Instagram"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Behance"><i class="fa fa-fw fa-behance" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Dribbble"><i class="fa fa-fw fa-dribbble" aria-hidden="true"></i></a></li>
-							<li><a href="#" title="Linkedin"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i></a></li>
-						</ul>
-
-					</div>
-					<!-- End Text in Footer -->
-
-					<!-- Start Contacts -->
-					<div class="col-md-6 footer-contacts">
-
-						<h2><span class="text-notice">Get In Touch</span></h2>
-
-						<p>If you have any questions or suggestions, please contact us, or you can come to visit us in our cozy office.</p>
-
-						<ul>
-							<li><strong>Phone:</strong> (+11) 123-555-4567</li>
-							<li><strong>Email:</strong> mail@example.com</li>
-							<li><strong>Address:</strong> 1465 Mountain St, CA 91104, USA</li>
-						</ul>
-
-					</div>
-					<!-- End Contacts -->
-
-				</div>
-			</div> <!-- .footer-first-line -->
-
-			<div class="container footer-second-line">
-				<div class="row">
-
-					<div class="col-md-6 footer-bottom-links">
-						<ul>
-							<li><a href="single-page.html" title="Privacy">Privacy</a> /</li>
-							<li><a href="single-page.html" title="Terms of Use">Terms of Use</a> /</li>
-							<li><a href="single-page.html" title="Security">Security</a></li>
-						</ul>
-						<p class="copyright">Olli - Single Product Landing Page. All rights reserved.</p>
-					</div>
-
-				</div>
-			</div><!-- .footer-second-line -->
-		</footer>
-		<!-- End Footer -->
-
+		<% include footer.ejs %>
 	</section>
 	<!-- End Content -->
+	<% include popup.ejs %>
+	<!-- Start Popup -->
+	<section id="snreg" class="order mfp-hide">
+
+		<div class="order-form-content">
+
+			<!-- Start Order Form -->
+			<div class="order-form">
+				<div class="col-md-12">
+					<h3>제품 번호 등록</h3>
+				</div>
+				<div class="col-md-12">
+					<input class="order-email" type="text" name="email" v-model="serialNumber" placeholder="제품 번호를 입력해 주세요">
+				</div>
+				<div class="col-md-12">
+					<label>{{ findPWMessage }}</label>
+				</div>
+				<div class="col-md-12">
+					<hr>
+				</div>
+				<div class="col-md-6">
+					<button type="button" style="width:100%; margin-top:10px;" v-on:click="req_sn" class="button  ld-over-inverse action-button-cta" >등록 하기<div class="ld ld-ring ld-spin-fast"></div></button>
+				</div>
+			</div>
+			<!-- End Order Form -->
+
+		</div> <!-- .order-form-content -->
+
+	</section>
+	<!-- End Popup -->
 </div>
 <!-- Include JS -->
 <script src="assets/js/jquery.min.js"></script>
@@ -242,18 +186,7 @@
 </script>
 <!-- google Map API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGpvUrTIpP7UhQut7omRAUpqz-9MBacpQ&callback=initMap" async defer></script>
-<!-- firebase script -->
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  // TODO: Replace with your project's customized code snippet
-  var config = {
-    apiKey: "AIzaSyALyWz06WQtK1rn3rGsTHHbiFmv9hAJTHM",
-    authDomain: "airpuri-1c6b7.firebaseapp.com",
-    projectId: "airpuri-1c6b7"
-  };
-  firebase.initializeApp(config);
-</script>
+<% include init.ejs %>
 <!-- vue.js 부분 -->
 <script type="text/javascript">
 new Vue({
@@ -262,7 +195,21 @@ new Vue({
 		send_name:'',
 		recieve_email:'',
 		title:'',
-		content:''
+		content:'',
+		user:null,
+		loginEmailInput:'',
+		loginPwInput:'',
+		signUpEmailInput:'',
+		signUpPwInput:'',
+		signUpPwConfirmInput:'',
+		signUpNicknameInput:'',
+		signUpMessage:'',
+		loginMessage:'',
+		findPWMessage :'',
+		findEmail:'',
+		serialNumber:'',
+		anonyEmail:'',
+		anonyPw:''
 	},
 	methods:{
 		showModal: function(){
@@ -287,6 +234,47 @@ new Vue({
 		},
 		update_content:function(e){
 			this.content = e.target.value;
+		},
+		reg_sn:function(e){
+			const vm = this;
+			if(this.user==null){
+				alert("로그인 후에 이용 가능합니다.")
+			} else{
+				$.magnificPopup.open({
+					items:{
+						src:'#snreg'
+					},
+					type:'inline',
+				    midClick: true,
+				    mainClass: 'mfp-fade',
+				    callbacks:{
+					    close: function(){
+					    	vm.serialNumber='';
+					    }
+				    }
+				});
+			}
+		},
+		req_sn:function(e){
+			var $button=$(e.target);
+			$button.addClass("running");
+			var vm = this;
+			this.user.getIdToken(true).then(function(idToken) {
+				$.post('/contact/reg_sn' , {sn:vm.serialNumber, token:idToken}, function(result){
+						alert("등록이 완료되었습니다.");
+						$button.removeClass("running");
+						$.magnificPopup.close();
+					}).fail(function(err){
+						$button.removeClass("running");
+						if(err['message']=='duplicate'){
+							alert("이미 등록된 제품번호 입니다. 고객센터로 문의주세요!")
+						} else{
+							alert("내부 서버 오류입니다. 잠시후에 다시 시도 해 주세요!");
+						}
+					});
+				}).catch(function(error) {
+					alert("내부 서버 오류입니다. 잠시후에 다시 시도 해 주세요!");
+				});
 		},
 		req_email:function(e){
 			var $button=$(e.target);
@@ -317,11 +305,16 @@ new Vue({
 					alert("내부 서버 오류입니다. 잠시후에 다시 시도 해 주세요!");
 				});
 			}
-		}
+		},
+		<% include navbar.js%>
 	},
 	beforeCreate: function(){
-		//여기다가 firebase init 넣어야함
-		//dom 생성되기전에 실행되는 함수
+		Kakao.init('8cfff2d2abaa58507a1576a56585356c');
+		firebase.auth().onAuthStateChanged((user) => {
+	        if (user) {
+	          this.user = user
+	        }
+	      });
 	},
 	created: function(){
 		

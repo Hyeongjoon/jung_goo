@@ -29,6 +29,7 @@ exports.makeEmail = function(inform , callback){
 	mailOption.html = inform.content + '<br \><br \> - '+ inform.name+ '님 '+ inform.email+'에서 온 메일';
 	emailTransport.sendMail(mailOption , function(err , info){
 		if(err){
+			console.log(err)
 			callback(err , null);
 		} else{
 			callback(null , true);

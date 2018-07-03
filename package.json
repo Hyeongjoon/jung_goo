@@ -12,7 +12,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
-    "express": "~4.15.5",
+    "express": "^4.16.3",
     "firebase-admin": "^5.12.1",
     "formidable": "^1.2.1",
     "iamport": "^0.3.4",
@@ -20,8 +20,9 @@
     "mysql": "^2.15.0",
     "node-schedule": "^1.2.5",
     "nodemailer": "^4.3.1",
+    "pm2": "^2.10.4",
     "python-shell": "^0.5.0",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "request-promise": "^4.2.2",
     "serve-favicon": "~2.4.5"
   }

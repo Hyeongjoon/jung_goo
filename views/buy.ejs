@@ -86,11 +86,11 @@
 
 					<div class="collapse navbar-collapse" id="menu-navbar">
 						<ul class="nav navbar-nav navbar-right smooth-nav">
-							<li><a href="/temp#home" title="Home">Home</a></li>
-							<li><a href="/temp#about" title="About">Technologies</a></li>
-							<li><a href="/temp#design" title="Design">Design</a></li>
-							<li><a href="/temp#service-1" title="Service">Service</a></li>
-							<li><a href="/temp#products-1" title="Products">Products</a></li>
+							<li><a href="#home" title="Home">Home</a></li>
+							<li><a href="#about" title="About">Technologies</a></li>
+							<li><a href="#design" title="Design">Design</a></li>
+							<li><a href="#service-1" title="Service">Service</a></li>
+							<li><a href="#products-1" title="Products">Products</a></li>
 							<li class="current"><a href="#buy" title="Buy now">Buy now</a></li>
 							<li><a href="/cart" title="결제 내역">결제 내역</a></li>
 							<li><a href="/contact" title="고객 센터">고객 센터</a></li>
@@ -411,7 +411,7 @@
 					<hr>
 				</div>
 				<div class="col-md-12">
-					<p class="text-left">로그인 시 <a href="/temp/service">서비스 약관</a> 및 <a href="/temp/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
+					<p class="text-left">로그인 시 <a href="/service">서비스 약관</a> 및 <a href="/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
 				</div>
 				<div class="col-md-12">
 					<a v-on:click="popupSignup($event)" style="padding-right:10px;">회원 가입</a>
@@ -453,7 +453,7 @@
 					<hr>
 				</div>
 				<div class="col-md-12">
-					<p>회원가입 시 <a href="/temp/service">서비스 약관</a> 및 <a href="/temp/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
+					<p>회원가입 시 <a href="/service">서비스 약관</a> 및 <a href="/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
 				</div>
 				<div class="col-md-6">
 					<button type="button" style="width:100%; margin-top:10px;" class="button action-button-cta" v-on:click="signUp">가입하기</button>
@@ -530,7 +530,7 @@
     projectId: "airpuri-1c6b7"
   };
   firebase.initializeApp(config);
-  var naver_id_login = new naver_id_login("V6wZ56EY5aj3huwFWJCw",	"http://www.lottofreenum.com/temp/auth");
+  var naver_id_login = new naver_id_login("V6wZ56EY5aj3huwFWJCw",	"http://www.lottofreenum.com/auth");
   var state = naver_id_login.getUniqState();
 	 	naver_id_login.setButton("white", 2,40);
 	 	naver_id_login.setDomain("http://www.lottofreenum.com");
@@ -666,10 +666,10 @@ new Vue({
 			    			car_price : car_price,
 			    			pw : pw 
 		                },
-		                m_redirect_url:'http://www.lottofreenum.com/temp/pay-success?amount='+1000
+		                m_redirect_url:'http://www.lottofreenum.com/pay-success?amount='+1000
 		            }, (rsp) => { // callback
 		                if (rsp.success) {
-		              		location.replace("/temp/pay-success?amount="+1000+'&imp_uid='+rsp.imp_uid+'&imp_success='+rsp.success); //나중에 total_price로 바꿀껏
+		              		location.replace("/pay-success?amount="+1000+'&imp_uid='+rsp.imp_uid+'&imp_success='+rsp.success); //나중에 total_price로 바꿀껏
 		                } else {
 		                	alert("결제가 취소되었습니다.");
 		                }
@@ -784,7 +784,7 @@ new Vue({
 			const vm = this;
 			Kakao.Auth.login({
 		        success: function(authObj) {
-		                $.post("/temp/kakao_login" ,{access_token : authObj['access_token']} ,function(result){
+		                $.post("/kakao_login" ,{access_token : authObj['access_token']} ,function(result){
 		    				if(result['result']=='duplicate'){
 		    					vm.loginMessage='이미 가입된 이메일 입니다.';
 		    				}else {
@@ -894,7 +894,7 @@ new Vue({
 			} else if(nickname.length>20){
 				this.signUpMessage = '닉네임은 20자 이하로 입력해주세요!';
 			} else{
-				$.post("/temp/sign-up" ,{email:email , pw:pw, pw_confirm:pw_confirm , nickname:nickname} ,function(result){
+				$.post("/sign-up" ,{email:email , pw:pw, pw_confirm:pw_confirm , nickname:nickname} ,function(result){
 					if(result['result']=='duplicate'){
 						vm.signUpMessage = '이미 사용중인 email입니다. 다른 Email을 사용해 주세요';
 					} else if(result['result']=='success'){

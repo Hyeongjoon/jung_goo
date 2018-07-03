@@ -17,14 +17,14 @@
 		  };
   firebase.initializeApp(config);
    // 네이버아이디로그인 시작
-   var naver_id_login = new naver_id_login("V6wZ56EY5aj3huwFWJCw", "http://www.lottofreenum.com/temp/auth");
+   var naver_id_login = new naver_id_login("V6wZ56EY5aj3huwFWJCw", "http://www.lottofreenum.com//auth");
    naver_id_login.init_naver_id_login();  // 로그인 시작
    // 네이버 사용자정보 가져오기
    function callback(){
     var paramBody = {id : naver_id_login.getProfileData('id') // 네이버ID
                     ,email : naver_id_login.getProfileData('email') // 이메일주소(xxxx@naver.com)
                     };
-    $.post("/temp/naver_login" ,paramBody ,function(result){
+    $.post("/naver_login" ,paramBody ,function(result){
 		if(result['result']=='duplicate'){
 			opener.naverIdLoginCallback('duplicate');
 			var win = window.open("", "_self");
@@ -43,7 +43,6 @@
 	}).fail(function(message){
 		opener.naverIdLoginCallback('wrong');
 		var win = window.open("", "_self");
-	    win.close();
 	});
    }
   </script>

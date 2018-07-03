@@ -1,0 +1,43 @@
+<!-- Start Navigation -->
+		<nav id="navigation" class="navbar navbar-default navbar-top">
+			<div class="container-fluid">
+
+				<div class="nav-bg top-nav"></div>
+
+				<div class="container">
+
+					<div class="navbar-button">
+						<ul class="ul-btn">
+							<li v-if="checkLogin()"><a v-on:click="logout()" class="button action-button-nav smooth" title="로그아웃">로그아웃</a></li>
+							<li v-else><a v-on:click="popupLogin()" class="button action-button-nav smooth" title="로그인">로그인</a></li>
+						</ul>
+					</div>
+
+					<div class="navbar-header">
+						<button id="nav-icon" type="button" class="navbar-toggle collapsed nav-icon" data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+						</button>
+						<a class="navbar-brand smooth" href="/">Olli.<span class="logo-promo-text">Perfect Gadgets</span></a> <!-- Title / Tagline -->
+					</div>
+
+					<div class="collapse navbar-collapse" id="menu-navbar">
+						<ul class="nav navbar-nav navbar-right smooth-nav">
+							<li><a href="/#home" title="Home">Home</a></li>
+							<li><a href="/#about" title="About">Technologies</a></li>
+							<li><a href="/#design" title="Design">Design</a></li>
+							<li><a href="/#service-1" title="Service">Service</a></li>
+							<li><a href="/#products-1" title="Products">Buy now</a></li>
+							<li v-if="checkLogin()"><a v-on:click="cart" title="결제 내역">결제 내역</a></li>
+							<li v-else><a v-on:click="popAnony" title="결제 내역">결제 내역</a></li>
+							<li><a href="/contact#contact" title="고객 센터">고객 센터</a></li>
+						</ul>
+					</div>
+
+					<div class="clearfix"></div>
+
+				</div>
+			</div>
+		</nav>

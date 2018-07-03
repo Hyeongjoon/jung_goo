@@ -1,0 +1,153 @@
+<!-- Start Popup -->
+	<section id="login" class="order mfp-hide">
+
+		<div class="order-form-content">
+
+			<!-- Start Order Form -->
+			<div class="order-form">
+				<div class="col-md-12">
+					<h3>로그인</h3>
+				</div>
+				<div class="col-md-12">
+					<input v-model="loginEmailInput" class="order-email" type="text" name="email" placeholder="Email">
+				</div>
+
+				<div class="col-md-12">
+					<input class="order-address" v-model="loginPwInput" type="password" name="order-address" placeholder="Password">
+				</div>
+				<div class="col-md-12 order-button-block">
+					<button v-on:click="login()" type="button" class="button order-button" style="width:100%;" title="Order">이메일 로그인</button>
+				</div>
+				<div class="col-md-12 order-button-block">
+					<button type="button" v-on:click="kakaoLogin" class="button ld-over-inverse order-button" style="width:100%; background-color:#fef01b; border-color:#fef01b; color:#556677; " title="Order"><i class="xi-kakaotalk xi-x" style="padding-right:3px; "></i>카카오톡 로그인<div class="ld ld-ring ld-spin-fast"></div></button>
+				</div>
+				<div class="col-md-12 order-button-block">
+					<button type="button" v-on:click="facebookLogin" class="button ld-over-inverse order-button" style="width:100%; background-color:#3b5998; border-color:#3b5998;" title="Order"><i class="xi-facebook-official xi-x" style="padding-right:3px; "></i>페이스북 로그인<div class="ld ld-ring ld-spin-fast"></div></button>
+				</div>
+				<div class="col-md-12 order-button-block">
+					<button type="button" id="naver_btn" v-on:click="naverLogin" class="button ld-over-inverse order-button" style="width:100%; background-color:#1EC800; border-color:#1EC800;" title="Order"><i class="xi-naver-square xi-x" style="padding-right:3px; "></i>네이버 로그인<div class="ld ld-ring ld-spin-fast"></div></button>
+				</div>
+				<div class="col-md-12" style="display:none">
+					<div id="naver_id_login"></div>
+				</div>
+				<div class="col-md-12">
+					<label>{{ loginMessage }}</label>
+				</div>
+				<div class="col-md-12">
+					<hr>
+				</div>
+				<div class="col-md-12">
+					<p class="text-left">로그인 시 <a href="/service">서비스 약관</a> 및 <a href="/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
+				</div>
+				<div class="col-md-12">
+					<a v-on:click="popupSignup($event)" style="padding-right:10px;">회원 가입</a>
+					<a v-on:click="findPw($event)">비밀번호 찾기</a>
+				</div>
+			</div>
+			<!-- End Order Form -->
+
+		</div> <!-- .order-form-content -->
+
+	</section>
+	<!-- End Popup -->
+	<!-- Start Popup -->
+	<section id="signup" class="order mfp-hide">
+
+		<div class="order-form-content">
+
+			<!-- Start Order Form -->
+			<div class="order-form">
+				<div class="col-md-12">
+					<h3>회원 가입</h3>
+				</div>
+				<div class="col-md-12">
+					<input class="order-email" v-model="signUpEmailInput" type="text" name="email" placeholder="이메일">
+				</div>
+				<div class="col-md-12">
+					<input class="order-address" v-model="signUpPwInput" type="password" placeholder="비밀번호">
+				</div>
+				<div class="col-md-12">
+					<input class="order-address" v-model="signUpPwConfirmInput" type="password" placeholder="비밀번호 확인">
+				</div>
+				<div class="col-md-12">
+					<input  class="order-email" v-model="signUpNicknameInput" type="text"  placeholder="닉네임">
+				</div>
+				<div class="col-md-12">
+					<label>{{ signUpMessage }}</label>
+				</div>
+				<div class="col-md-12">
+					<hr>
+				</div>
+				<div class="col-md-12">
+					<p>회원가입 시 <a href="/service">서비스 약관</a> 및 <a href="/individual">개인 정보 보호정책</a>약관에 동의하는 것으로 간주됩니다.</p>
+				</div>
+				<div class="col-md-6">
+					<button type="button" style="width:100%; margin-top:10px;" class="button action-button-cta" v-on:click="signUp">가입하기</button>
+				</div>
+				<div class="col-md-6">
+					<button type="button" v-on:click="closePopup" style="width:100%; margin-top:10px;" class="button">돌아가기</button>
+				</div>
+			</div>
+			<!-- End Order Form -->
+
+		</div> <!-- .order-form-content -->
+
+	</section>
+	<!-- End Popup -->
+	<!-- Start Popup -->
+	<section id="pwEmail" class="order mfp-hide">
+		<div class="order-form-content">
+
+			<!-- Start Order Form -->
+			<div class="order-form">
+				<div class="col-md-12">
+					<h3>비밀번호 찾기</h3>
+				</div>
+				<div class="col-md-12">
+					<input class="order-email" type="text" name="email" v-model="findEmail" placeholder="회원가입 한 이메일을 입력해 주세요">
+				</div>
+				<div class="col-md-12">
+					<label>{{ findPWMessage }}</label>
+				</div>
+				<div class="col-md-12">
+					<hr>
+				</div>
+				<div class="col-md-6">
+					<button type="button" style="width:100%; margin-top:10px;" v-on:click="sendEmail" class="button action-button-cta" >비밀번호 찾기</button>
+				</div>
+			</div>
+			<!-- End Order Form -->
+
+		</div> <!-- .order-form-content -->
+	</section>
+	<!-- End Popup -->
+		<!-- Start Popup -->
+	<section id="anonycart" class="order mfp-hide">
+		<div class="order-form-content">
+
+			<!-- Start Order Form -->
+			<div class="order-form">
+				<div class="col-md-12">
+					<h3>비회원 조회</h3>
+				</div>
+				<div class="col-md-12">
+					<input class="order-email" type="text" name="email" v-model="anonyEmail" placeholder="비회원 주문시 사용한 이메일을 입력해 주세요">
+				</div>
+				<div class="col-md-12">
+					<input class="order-email" type="password" name="pw" v-model="anonyPw" placeholder="비회원 비밀번호를 입력해 주세요">
+				</div>
+				<div class="col-md-12">
+					<label>{{ anonyMessage }}</label>
+				</div>
+				<div class="col-md-12">
+					<hr>
+				</div>
+				<div class="col-md-6">
+					<button type="button" style="width:100%; margin-top:10px;" v-on:click="anonyCart" class="button action-button-cta" >비회원 조회하기</button>
+				</div>
+			</div>
+			<!-- End Order Form -->
+
+		</div> <!-- .order-form-content -->
+	</section>
+	<!-- End Popup -->
