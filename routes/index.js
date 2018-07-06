@@ -120,9 +120,7 @@ function naverUpdateOrCreateUser(userId, email) {
 	      if (email) {
 	        updateParams['email'] = email;
 	      }
-	      console.log(updateParams);
 	      return admin.auth().createUser(updateParams).catch((error)=>{
-	    	  console.log(error);
 	    	  if(error.code==='auth/email-already-exists'){
 	    		  return 'email-already-exists';
 	    	  }
@@ -177,7 +175,7 @@ function requestMyInfo(kakaoToken) {
 		
 router.get('/pay-success', function(req, res, next){
 	if(req.query['imp_success']=='false'){
-		res.redirect('/temp/fail');
+		res.redirect('/fail');
 	} else{
 		iamport.payment.getByImpUid({
 			  imp_uid: req.query['imp_uid']  
@@ -193,6 +191,7 @@ router.get('/pay-success', function(req, res, next){
 								anony_pw:custom_data['pw']
 						}
 						if(custom_data['token']==''){
+							inform['uid']=result['buyer_email'];
 							orderDAO.insertOrder(inform , callback);
 						} else{
 							admin.auth().verifyIdToken(custom_data['token']).then(function(decodedToken){
@@ -203,9 +202,9 @@ router.get('/pay-success', function(req, res, next){
 					}] , function(err, results){
 						if(err){
 							//원래는 취소 날려야함
-							res.redirect('/temp/fail');
+							res.redirect('/fail');
 						} else{
-							res.redirect('/temp/success');
+							res.redirect('/success');
 						}
 					});
 				} else {

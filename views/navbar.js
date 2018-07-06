@@ -41,6 +41,7 @@ checkLogin:function(){
 		    							$button.removeClass('running');
 		    						});
 		    				}
+			                Kakao.Auth.logout();
 		    			}).fail(function(message){
 		    				if(!message){
 		    					vm.loginMessage=message['message'];	
@@ -48,8 +49,8 @@ checkLogin:function(){
 		    					vm.loginMessage='내부 서버 오류입니다. 잠시후에 시도해 주세요';
 		    				}
 		    				$button.removeClass('running');
+		    				Kakao.Auth.logout();
 		    			});
-		                Kakao.Auth.logout();
 		        },
 		        fail: function(err) {
 		        	vm.loginMessage='이메일이나 비밀번호가 틀렸습니다.';
@@ -59,8 +60,6 @@ checkLogin:function(){
 		      });
 		},
 		naverLogin:function(e){
-			var $button=$(e.target);
-			$button.addClass('running');
 			$("#naver_id_login").find('a').click();
 		},
 		logout:function(){
@@ -215,7 +214,7 @@ checkLogin:function(){
 				type:'inline',
 			    midClick: true,
 			    mainClass: 'mfp-fade',
-			    closeOnBgClick:false,
+			    closeOnBgClick:true,
 			    callbacks:{
 			    	close:function(){
 			    		vm.anonyEmail='',
@@ -225,5 +224,12 @@ checkLogin:function(){
 			});
 		},
 		anonyCart:function(e){
-			location.href="/cart/anony_cart?email="+this.anonyEmail+"&pw="+this.anonyPw
+			var emailRegExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+			if(!emailRegExp.test(this.anonyEmail)){
+				alert("올바른 이메일을 적어주세요!");
+			}else if((this.anonyPw.trim()).length==0){
+				alert("비밀번호를 입력해 주세요!");
+			} else{
+				location.href="/cart/anony_cart?email="+this.anonyEmail+"&pw="+this.anonyPw
+			}
 		}
