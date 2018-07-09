@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var contact = require('./routes/contact');
-var order_log = require('./routes/order_log')
+var order_log = require('./routes/order_log');
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/contact' , contact);
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/admin', admin);
 app.use('/cart',  order_log);
 
 //firebase initialize

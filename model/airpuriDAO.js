@@ -15,3 +15,13 @@ exports.getImpUidByUid = function(uid,callback){
 	var sqlQuery = 'select imp_uid from order_log WHERE uid='+ mysql.escape(uid)+' ORDER BY `oid` DESC;';
 	base.select(sqlQuery, callback);
 }
+
+exports.getImpUid = function(callback){
+	var sqlQuery = 'select imp_uid,oid,delivery from order_log ORDER BY `oid` DESC;';
+	base.select(sqlQuery, callback);
+}
+
+exports.changeDelivery = function(oid, callback){
+	var sqlQuery ='update order_log set `delivery` = true WHERE oid = ' + mysql.escape(oid);
+	base.update(sqlQuery , callback);
+}
